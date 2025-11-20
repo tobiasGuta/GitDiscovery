@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DotGit-Privacy Options</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+    h1 { border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    .section { margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-radius: 5px; }
+    .danger { border-left: 4px solid #d00; }
+    .warning-text { color: #d00; font-weight: bold; }
+    label { display: block; margin-bottom: 10px; }
+    input[type="checkbox"] { margin-right: 10px; }
+    button { padding: 8px 16px; cursor: pointer; background: #0066cc; color: white; border: none; border-radius: 4px; }
+    button:hover { background: #0055aa; }
+    .saved { color: green; margin-left: 10px; display: none; }
+  </style>
+</head>
+<body>
+  <h1>DotGit-Privacy Options</h1>
+
+  <div class="section">
+    <h3>Scanning Checks</h3>
+    <label><input type="checkbox" id="check-git"> .git (Git Repository)</label>
+    <label><input type="checkbox" id="check-env"> .env (Environment Variables)</label>
+    <label><input type="checkbox" id="check-svn"> .svn (Subversion)</label>
+    <label><input type="checkbox" id="check-hg"> .hg (Mercurial)</label>
+    <label><input type="checkbox" id="check-ds_store"> .DS_Store (macOS Metadata)</label>
+    <label><input type="checkbox" id="check-securitytxt"> security.txt (Security Policy)</label>
+  </div>
+
+  <div class="section">
+    <h3>Notifications</h3>
+    <label><input type="checkbox" id="notification-new"> Notify when exposed .git is found</label>
+  </div>
+
+  <div class="section danger">
+    <h3>Advanced & Risky</h3>
+    <label>
+      <input type="checkbox" id="allow-downloads"> 
+      <strong>Allow Downloads</strong>
+      <p style="font-size:0.9em; color:#666;">
+        Enabling this allows the extension to fetch and assemble .git content and save zips locally. 
+        Files are processed locally.
+      </p>
+    </label>
+    
+    <label>
+      <input type="checkbox" id="auto-scan-all"> 
+      <strong>Automatic scanning for ALL sites</strong>
+      <p class="warning-text">
+        WARNING: Enabling this will request broad host permissions. 
+        The extension will scan every site you visit automatically. 
+        Use with caution.
+      </p>
+    </label>
+  </div>
+
+  <button id="save">Save Options</button>
+  <span id="saved-msg" class="saved">Saved!</span>
+
+  <script src="options.js"></script>
+</body>
+</html>
