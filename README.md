@@ -7,7 +7,17 @@ A privacy-focused Firefox WebExtension to detect exposed `.git` repositories and
 - **Privacy First**: No telemetry, no external endpoints. Scans only happen locally.
 - **Per-Origin Opt-In**: Automatic scanning is disabled by default. You must explicitly enable it for each site you trust/want to scan.
 - **On-Demand Scanning**: Scan any site manually with a single click.
-- **Sensitive File Detection**: Checks for `.git`, `.env`, `.svn`, `.hg`, `.DS_Store`, and `security.txt`.
+- **Sensitive File Detection**: Checks for:
+    - `.git` repositories
+    - `.env` files
+    - `.svn` repositories
+    - `.hg` (Mercurial) repositories
+    - `.DS_Store` (macOS metadata)
+    - `security.txt` policies
+    - `env` (Python Virtual Environments)
+    - `trace` (Trace files)
+- **Status Reporting**: Distinguishes between exposed files (200 OK - Green) and forbidden files (403 Forbidden - Red).
+- **Notifications**: Alerts you when exposed or forbidden items are found.
 
 ## Installation
 
