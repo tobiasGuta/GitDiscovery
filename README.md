@@ -69,6 +69,8 @@ A privacy-focused Firefox WebExtension for bug bounty hunters to detect exposed 
 - Use the **Export** dropdown in the popup for current findings.
 - Use the **History** page for full historical export with filtering.
 
+<img width="372" height="581" alt="Screenshot 2026-03-10 140049" src="https://github.com/user-attachments/assets/3f7a5b83-1a42-4bed-a2c9-e0aba7ea9069" />
+
 ## Required: Install Libraries
 
 The `.git` dumper/download feature requires two third-party libraries. The `lib/` folder contains **placeholder files** that must be replaced with the real libraries before the extension will work fully.
