@@ -24,7 +24,7 @@ A privacy-focused Firefox WebExtension for bug bounty hunters to detect exposed 
 
 ## Security
 
-- No `innerHTML` usage — all DOM manipulation uses safe APIs (`textContent`, `createElement`).
+- No `innerHTML` usage all DOM manipulation uses safe APIs (`textContent`, `createElement`).
 - Content Security Policy enforced via manifest.
 - Message sender validation prevents spoofed findings from compromised pages.
 - Download URLs validated against expected origins.
@@ -69,11 +69,23 @@ A privacy-focused Firefox WebExtension for bug bounty hunters to detect exposed 
 - Use the **Export** dropdown in the popup for current findings.
 - Use the **History** page for full historical export with filtering.
 
-## Developer Checklist
+## Required: Install Libraries
 
-- [x] Replace `lib/jszip.min.js` with the actual library (loaded in background scripts).
-- [x] Replace `lib/pako_inflate.min.js` with the actual library (loaded in background scripts).
-- [ ] Add icons for different finding severities.
+The `.git` dumper/download feature requires two third-party libraries. The `lib/` folder contains **placeholder files** that must be replaced with the real libraries before the extension will work fully.
+
+### 1. JSZip (required for .git download as ZIP)
+
+1. Go to https://github.com/Stuk/jszip/releases
+2. Download the latest release
+3. Copy `dist/jszip.min.js` into `DotGit-Privacy/lib/`, replacing the existing placeholder
+
+### 2. Pako (required for inflating git objects)
+
+1. Go to https://github.com/nicoreed/pako/releases or https://www.npmjs.com/package/pako
+2. Download the latest release
+3. Copy `dist/pako_inflate.min.js` into `DotGit-Privacy/lib/`, replacing the existing placeholder
+
+**Without these libraries, scanning still works — only the "Download .git" feature will fail.**
 
 ## Privacy Statement
 
