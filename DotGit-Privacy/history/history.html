@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DotGit-Privacy — Findings History</title>
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: 20px auto; padding: 20px; }
+    h1 { border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    .controls { margin-bottom: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .controls input, .controls select, .controls button { padding: 6px 10px; }
+    #filter { width: 250px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #eee; }
+    th { background: #f5f5f5; cursor: pointer; user-select: none; }
+    th:hover { background: #e8e8e8; }
+    .exposed { color: #2e7d32; font-weight: bold; }
+    .forbidden { color: #e65100; }
+    .empty { color: #999; text-align: center; padding: 40px; }
+    button { cursor: pointer; padding: 6px 12px; background: #0066cc; color: white; border: none; border-radius: 4px; }
+    button:hover { background: #0055aa; }
+    button.danger { background: #d00; }
+    button.danger:hover { background: #b00; }
+  </style>
+</head>
+<body>
+  <h1>Findings History</h1>
+
+  <div class="controls">
+    <input type="text" id="filter" placeholder="Filter by origin...">
+    <select id="status-filter">
+      <option value="all">All statuses</option>
+      <option value="exposed">Exposed only</option>
+      <option value="403">403 only</option>
+    </select>
+    <button id="btn-export-json">Export JSON</button>
+    <button id="btn-export-csv">Export CSV</button>
+    <button id="btn-clear" class="danger">Clear History</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th data-sort="origin">Origin</th>
+        <th data-sort="types">Findings</th>
+        <th data-sort="timestamp">Date</th>
+      </tr>
+    </thead>
+    <tbody id="history-body"></tbody>
+  </table>
+
+  <div id="empty-msg" class="empty" style="display:none;">No findings in history.</div>
+
+  <script src="history.js"></script>
+</body>
+</html>
